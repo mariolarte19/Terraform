@@ -95,7 +95,7 @@ resource "skytap_environment" "enviroment"{
 }
 </pre></code>
 
-## 2. Aprovisionamiento de recursos en Skytap desde una IBM Schematics
+## 2. Aprovisionamiento de recursos en Skytap desde IBM Schematics
 
 ### 2.1 Github
 
