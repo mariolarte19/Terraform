@@ -8,6 +8,7 @@
 * Terraform v0.12.24
 * Terraform-skytap provider v0.14.0
 * Github para clonar el repositorio de código fuente.
+* Acceso a cuenta Skytap.
 
 ## 1 Aprovisionamiento de infraestructura en Skytap desde una maquina local
 
@@ -98,20 +99,20 @@ resource "skytap_environment" "enviroment"{
 
 ### 2.1 Github
 
-a.Crear un repositorio con los archivos terraforms vars.tf y main.tf
+a. Crear un repositorio con los archivos terraforms vars.tf y main.tf.
 
 * vars.tf contiene nuestras variables de autenticacion de Skytap. 
 
-variable "username" {
+` variable "username" {
   description = "Enter your Skytap username"
 }
 variable "api_token" {
   description = "Enter your Skytap API token"
-}
+} `
 
-* mian.tf contiene el script de aprovisionamiento de recursos en Skytap.
+* main.tf contiene el script de aprovisionamiento de recursos en Skytap.
 
-provider "skytap" {
+` provider "skytap" {
   username = "${var.username}"
   api_token = "${var.api_token}"
 }
@@ -119,5 +120,34 @@ resource "skytap_environment" "enviroment"{
   template_id = "id"
   name = "Prueba"
   description = "Skytap terraform provider example environment."
-}
+} ......`
+
+### 2.1 Configuracion Schematics.
+
+a. En IBM Schematics crear un espacio de trabajo.
+b. Importar la plantilla de Terraform:
+
+* Se copia la URL del repositorio de GitHub o GitLab el cual contiene la platilla de Terraform de aprovisunamiento de recursos en Skytap.
+c. Recuperar Variables de entrada.
+
+* Seleccionamos nuestras variables de entrada las cuales son User name y API key.
+* Insertar variables de auteticacion las cuales se encuentran en nuestra cuenta de Skytap.
+d. Creamos un espacio de trabajo 
+
+e. Generar Plan.
+Una vez creado el escpacio de trabajo generamos el plan de nuestra plantilla de Terraform atra vez del boton generar plan el cualsimula el comando de `terraform plan`  se usa para crear un plan de ejecución.
+
+
+f. Aplicar plan
+ Luego de generar el plan procedemos a aplicar nuestra plantilla de Terraform mediante el boton aplicar plan el cual simula el comando `terraform apply` , se usa para aplicar los cambios necesarios para alcanzar el estado deseado de la configuración.
+ 
+ 
+
+
+
+
+
+
+
+
 
