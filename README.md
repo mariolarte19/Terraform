@@ -141,6 +141,7 @@ Una vez creado el escpacio de trabajo generamos el plan de nuestra plantilla de 
 f. Aplicar plan
  Luego de generar el plan procedemos a aplicar nuestra plantilla de Terraform mediante el boton aplicar plan el cual simula el comando `terraform apply` , se usa para aplicar los cambios necesarios para alcanzar el estado deseado de la configuración.
  
+g. Una vez aplicado el plan podemos ver el aprovisionamiento de recursos en Skytap. 
  
 
 
